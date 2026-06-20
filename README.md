@@ -1,20 +1,5 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+**Project Description**
 
-# Run and deploy your AI Studio app
+BudgetBloom is a modern personal finance management platform developed to help users efficiently track and manage their financial activities. The application enables users to record income and expenses, create budgets, monitor savings goals, and analyze financial performance through an interactive dashboard. It provides real-time financial insights, balance sheet generation, and downloadable PDF reports to support better financial planning and decision-making.
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/c77e67b2-a495-42de-a5f4-30fd05164efa
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The system uses Firebase Authentication for secure user login and Firestore Database for cloud-based data storage, ensuring that each user's financial information remains private and accessible across devices. With its responsive design, BudgetBloom delivers a seamless experience on desktop, tablet, and mobile platforms, making personal finance management simple, secure, and accessible anytime, anywhere.
