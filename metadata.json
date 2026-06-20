@@ -1,0 +1,6 @@
+{
+  "name": "BudgetBloom",
+  "description": "Smart Personal Finance Manager with modern real-time tracking, wallets, budgeting, and interactive analytics.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

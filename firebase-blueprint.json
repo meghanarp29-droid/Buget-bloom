@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "users": {
+      "title": "UserProfile",
+      "description": "Information about the registered user profile.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "currency": { "type": "string" },
+        "theme": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "transactions": {
+      "title": "Transaction",
+      "description": "An record of income or expense financial log.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "amount": { "type": "number" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "description", "category", "paymentMethod", "type", "amount", "date"]
+    },
+    "budgets": {
+      "title": "Budget",
+      "description": "Monthly limit allocated to a specific spending category.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "category": { "type": "string" },
+        "limit": { "type": "number" },
+        "month": { "type": "string" }
+      },
+      "required": ["userId", "category", "limit", "month"]
+    },
+    "wallets": {
+      "title": "Wallet",
+      "description": "Payment methods or cash sources.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "balance": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "name", "type", "balance"]
+    },
+    "goals": {
+      "title": "Goal",
+      "description": "Savings and milestone tracker.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "targetAmount": { "type": "number" },
+        "currentAmount": { "type": "number" },
+        "targetDate": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "name", "targetAmount", "currentAmount", "targetDate"]
+    },
+    "reports": {
+      "title": "Report",
+      "description": "Financial or analytic report stored by the user.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "title", "createdAt"]
+    },
+    "notifications": {
+      "title": "Notification",
+      "description": "System or user notifications log.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "text": { "type": "string" },
+        "type": { "type": "string", "enum": ["success", "alert", "info"] },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "text", "type", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "users",
+      "description": "User profiles containing preferences."
+    },
+    "users/{userId}/transactions/{transactionId}": {
+      "schema": "transactions",
+      "description": "Financial ledger transactions."
+    },
+    "users/{userId}/budgets/{budgetId}": {
+      "schema": "budgets",
+      "description": "Limit alerts set per category."
+    },
+    "users/{userId}/wallets/{walletId}": {
+      "schema": "wallets",
+      "description": "Wallet balances."
+    },
+    "users/{userId}/goals/{goalId}": {
+      "schema": "goals",
+      "description": "Subscribed financial milestone goals."
+    },
+    "users/{userId}/reports/{reportId}": {
+      "schema": "reports",
+      "description": "Consolidated reports/history settings."
+    },
+    "users/{userId}/notifications/{notificationId}": {
+      "schema": "notifications",
+      "description": "Real-time alerts and user notifications."
+    }
+  }
+}
